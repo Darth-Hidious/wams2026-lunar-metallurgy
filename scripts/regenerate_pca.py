@@ -274,12 +274,65 @@ for ext in ('pdf', 'png'):
 print(f"  -> {FIG}/pca_loadings.pdf")
 plt.close()
 
+# --- UMAP embedding ---
+print("  Generating UMAP embedding...")
+from umap import UMAP
+
+reducer = UMAP(n_components=2, n_neighbors=30, min_dist=0.3,
+               metric='euclidean', random_state=42)
+umap_embedding = reducer.fit_transform(X_std)
+
+fig, axes = plt.subplots(1, 2, figsize=(10, 4.5))
+
+# Left panel: UMAP coloured by terrane
+ax = axes[0]
+for t in ['highlands', 'mare', 'kreep']:
+    mask = df['terrane'] == t
+    ax.scatter(umap_embedding[mask, 0], umap_embedding[mask, 1],
+               s=6, alpha=0.35, label=t.capitalize(),
+               color=TERRANE_COLORS[t], edgecolors='none')
+ax.set_xlabel('UMAP-1')
+ax.set_ylabel('UMAP-2')
+ax.set_title('Terrane separation', fontsize=10)
+ax.legend(fontsize=8, loc='best', framealpha=0.9)
+ax.grid(True, alpha=0.1)
+
+# Right panel: UMAP coloured by I_FeTi (continuous)
+# Recompute indices for colouring
+from regenerate_figures import compute_indices as ci_func
+df_idx = ci_func(df.rename(columns={c: c for c in df.columns}))
+
+ax = axes[1]
+sc = ax.scatter(umap_embedding[:, 0], umap_embedding[:, 1],
+                s=6, alpha=0.4, c=df_idx['I_FeTi'], cmap='RdYlBu_r',
+                edgecolors='none', vmin=0, vmax=0.7)
+ax.set_xlabel('UMAP-1')
+ax.set_ylabel('UMAP-2')
+ax.set_title(r'Coloured by $I_{\mathrm{FeTi}}$', fontsize=10)
+cbar = fig.colorbar(sc, ax=ax, shrink=0.85, pad=0.02)
+cbar.set_label(r'$I_{\mathrm{FeTi}}$', fontsize=9)
+cbar.ax.tick_params(labelsize=7)
+ax.grid(True, alpha=0.1)
+
+fig.tight_layout(w_pad=2.0)
+for ext in ('pdf', 'png'):
+    fig.savefig(FIG / f'umap_embedding.{ext}')
+print(f"  -> {FIG}/umap_embedding.pdf")
+plt.close()
+
+# Silhouette on UMAP space
+sil_umap = silhouette_score(umap_embedding, df['terrane'])
+dbi_umap = davies_bouldin_score(umap_embedding, df['terrane'])
+print(f"  UMAP separability: Silhouette={sil_umap:.3f}  DBI={dbi_umap:.3f}")
+
 print("\n" + "="*60)
 print("PAPER CROSS-CHECK")
 print("="*60)
 print(f"  Variance: PC1={var_explained[0]*100:.1f}% PC2={var_explained[1]*100:.1f}% PC3={var_explained[2]*100:.1f}%")
 print(f"  Cumulative: {sum(var_explained)*100:.1f}% (paper says 83.6%)")
-print(f"  Silhouette: {sil:.3f} (paper says 0.367)")
-print(f"  DBI: {dbi:.3f} (paper says 1.138)")
+print(f"  Silhouette (PCA): {sil:.3f}")
+print(f"  DBI (PCA): {dbi:.3f}")
+print(f"  Silhouette (UMAP): {sil_umap:.3f}")
+print(f"  DBI (UMAP): {dbi_umap:.3f}")
 print(f"  Pixels: {len(df)} (paper says 11,306)")
 print(f"  Features: {len(feature_names)} (paper says 8, U excluded)")
