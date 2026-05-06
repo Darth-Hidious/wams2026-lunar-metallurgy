@@ -1,0 +1,65 @@
+[
+  {
+    "composition": "R1_HfNbTaTiZr",
+    "phase": "bcc",
+    "e_per_atom": -9.542094437548613,
+    "v_per_atom": 19.71435587284011,
+    "a_relaxed": 3.403592274339321
+  },
+  {
+    "composition": "R1_HfNbTaTiZr",
+    "phase": "fcc",
+    "e_per_atom": -9.52027040254736,
+    "v_per_atom": 19.73096865985591,
+    "a_relaxed": 4.289461748758071
+  },
+  {
+    "composition": "R1_HfNbTaTiZr",
+    "phase": "hcp",
+    "e_per_atom": -9.520730106187475,
+    "v_per_atom": 19.752136931873643,
+    "a_relaxed": 3.4057651285386767
+  },
+  {
+    "composition": "R2_MoNbTaTiV",
+    "phase": "bcc",
+    "e_per_atom": -9.917654078386377,
+    "v_per_atom": 16.39584460985239,
+    "a_relaxed": 3.2007709477014035
+  },
+  {
+    "composition": "R2_MoNbTaTiV",
+    "phase": "fcc",
+    "e_per_atom": -9.870091245965098,
+    "v_per_atom": 16.454105788174477,
+    "a_relaxed": 4.037489682220073
+  },
+  {
+    "composition": "R2_MoNbTaTiV",
+    "phase": "hcp",
+    "e_per_atom": -9.884403347850085,
+    "v_per_atom": 16.430738667450587,
+    "a_relaxed": 3.203039993094075
+  },
+  {
+    "composition": "R3_ISRU_blend",
+    "phase": "bcc",
+    "e_per_atom": -7.883991486806654,
+    "v_per_atom": 14.794524783889859,
+    "a_relaxed": 3.0929792406160512
+  },
+  {
+    "composition": "R3_ISRU_blend",
+    "phase": "fcc",
+    "e_per_atom": -7.857558410276493,
+    "v_per_atom": 14.858743538085896,
+    "a_relaxed": 3.9025399661242735
+  },
+  {
+    "composition": "R3_ISRU_blend",
+    "phase": "hcp",
+    "e_per_atom": -7.86100775713563,
+    "v_per_atom": 14.87747161734769,
+    "a_relaxed": 3.09874882685104
+  }
+]

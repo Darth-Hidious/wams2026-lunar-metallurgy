@@ -1,0 +1,46 @@
+section,composition,phase_or_solute,displaced,value,unit,note
+static,R1_HfNbTaTiZr,bcc,,-9.54209,eV/atom,E
+static,R1_HfNbTaTiZr,bcc,,94.293,meV/atom,ΔH_f
+static,R1_HfNbTaTiZr,bcc,,19.7144,Å³/atom,V
+static,R1_HfNbTaTiZr,fcc,,-9.52027,eV/atom,E
+static,R1_HfNbTaTiZr,fcc,,116.117,meV/atom,ΔH_f
+static,R1_HfNbTaTiZr,fcc,,19.7310,Å³/atom,V
+static,R1_HfNbTaTiZr,hcp,,-9.52073,eV/atom,E
+static,R1_HfNbTaTiZr,hcp,,115.657,meV/atom,ΔH_f
+static,R1_HfNbTaTiZr,hcp,,19.7521,Å³/atom,V
+static,R2_MoNbTaTiV,bcc,,-9.91765,eV/atom,E
+static,R2_MoNbTaTiV,bcc,,-0.841,meV/atom,ΔH_f
+static,R2_MoNbTaTiV,bcc,,16.3958,Å³/atom,V
+static,R2_MoNbTaTiV,fcc,,-9.87009,eV/atom,E
+static,R2_MoNbTaTiV,fcc,,46.722,meV/atom,ΔH_f
+static,R2_MoNbTaTiV,fcc,,16.4541,Å³/atom,V
+static,R2_MoNbTaTiV,hcp,,-9.88440,eV/atom,E
+static,R2_MoNbTaTiV,hcp,,32.410,meV/atom,ΔH_f
+static,R2_MoNbTaTiV,hcp,,16.4307,Å³/atom,V
+static,R3_ISRU_blend,bcc,,-7.88399,eV/atom,E
+static,R3_ISRU_blend,bcc,,-117.242,meV/atom,ΔH_f
+static,R3_ISRU_blend,bcc,,14.7945,Å³/atom,V
+static,R3_ISRU_blend,fcc,,-7.85756,eV/atom,E
+static,R3_ISRU_blend,fcc,,-90.809,meV/atom,ΔH_f
+static,R3_ISRU_blend,fcc,,14.8587,Å³/atom,V
+static,R3_ISRU_blend,hcp,,-7.86101,eV/atom,E
+static,R3_ISRU_blend,hcp,,-94.258,meV/atom,ΔH_f
+static,R3_ISRU_blend,hcp,,14.8775,Å³/atom,V
+solute,R1_HfNbTaTiZr,Fe,Hf,+0.1870,eV,E_sub
+solute,R1_HfNbTaTiZr,Ti,Hf,+0.0939,eV,E_sub
+solute,R1_HfNbTaTiZr,Al,Hf,-0.7201,eV,E_sub
+solute,R2_MoNbTaTiV,Fe,Mo,+0.3049,eV,E_sub
+solute,R2_MoNbTaTiV,Ti,Mo,+0.3488,eV,E_sub
+solute,R2_MoNbTaTiV,Al,Mo,-0.0927,eV,E_sub
+solute,R3_ISRU_blend,Fe,Ti,-0.2161,eV,E_sub
+solute,R3_ISRU_blend,Ti,Fe,-0.6894,eV,E_sub
+solute,R3_ISRU_blend,Al,Fe,-0.8471,eV,E_sub
+mu_ref,,Al,,-3.75691,eV/atom,pure-element ground-state E/atom
+mu_ref,,Fe,,-8.28222,eV/atom,pure-element ground-state E/atom
+mu_ref,,Hf,,-9.93769,eV/atom,pure-element ground-state E/atom
+mu_ref,,Mo,,-10.92069,eV/atom,pure-element ground-state E/atom
+mu_ref,,Nb,,-10.10677,eV/atom,pure-element ground-state E/atom
+mu_ref,,Ta,,-11.81298,eV/atom,pure-element ground-state E/atom
+mu_ref,,Ti,,-7.79576,eV/atom,pure-element ground-state E/atom
+mu_ref,,V,,-8.94787,eV/atom,pure-element ground-state E/atom
+mu_ref,,Zr,,-8.52874,eV/atom,pure-element ground-state E/atom

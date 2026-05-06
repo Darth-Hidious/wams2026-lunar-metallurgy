@@ -1,0 +1,56 @@
+[
+  {
+    "matrix": "R1_HfNbTaTiZr",
+    "solute": "Fe",
+    "displaced": "Hf",
+    "e_sub": 0.18704248873111595
+  },
+  {
+    "matrix": "R1_HfNbTaTiZr",
+    "solute": "Ti",
+    "displaced": "Hf",
+    "e_sub": 0.09388179068442781
+  },
+  {
+    "matrix": "R1_HfNbTaTiZr",
+    "solute": "Al",
+    "displaced": "Hf",
+    "e_sub": -0.7200993697988167
+  },
+  {
+    "matrix": "R2_MoNbTaTiV",
+    "solute": "Fe",
+    "displaced": "Mo",
+    "e_sub": 0.3049264015099258
+  },
+  {
+    "matrix": "R2_MoNbTaTiV",
+    "solute": "Ti",
+    "displaced": "Mo",
+    "e_sub": 0.3488270632882351
+  },
+  {
+    "matrix": "R2_MoNbTaTiV",
+    "solute": "Al",
+    "displaced": "Mo",
+    "e_sub": -0.09273167781401348
+  },
+  {
+    "matrix": "R3_ISRU_blend",
+    "solute": "Fe",
+    "displaced": "Ti",
+    "e_sub": -0.21606739022996724
+  },
+  {
+    "matrix": "R3_ISRU_blend",
+    "solute": "Ti",
+    "displaced": "Fe",
+    "e_sub": -0.689429216563723
+  },
+  {
+    "matrix": "R3_ISRU_blend",
+    "solute": "Al",
+    "displaced": "Fe",
+    "e_sub": -0.8471375340462757
+  }
+]
