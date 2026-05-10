@@ -1,0 +1,14 @@
+alloy,VEC,delta_pct,dHmix_kJmol,dSmix_per_R,Omega,phase_heuristic,phase_experimental,source
+HfNbTaTiZr,4.4,5.02,2.7,1.61,12.41,BCC,BCC,Senkov 2011
+MoNbTaTiV,5.0,3.78,-2.6,1.61,13.65,BCC,BCC,Cao 2019
+MoNbTaW,5.5,2.31,-6.5,1.39,5.6,BCC,BCC,Senkov 2010
+MoNbTaVW,5.4,3.15,-4.6,1.61,8.54,BCC,BCC,Senkov 2010
+AlMo$_{0.5}$NbTa$_{0.5}$TiZr,4.3,5.04,-16.8,1.75,1.87,BCC,BCC + B2,Senkov 2014
+Fe$_{0.3}$Ti$_{0.3}$Al$_{0.2}$Nb$_{0.1}$Ta$_{0.1}$ (ISRU blend),5.2,6.8,-22.3,1.5,1.08,intermetallic / multi-phase,BCC (MACE),this work
+dilution path x=0\%,5.0,3.78,-2.6,1.61,13.65,BCC,BCC (MACE),this work
+dilution path x=10\%,5.1,4.51,-4.4,1.72,8.25,BCC,BCC (MACE),this work
+dilution path x=25\%,5.25,5.39,-7.0,1.75,5.05,BCC,BCC (MACE),this work
+dilution path x=50\%,5.5,6.54,-10.9,1.64,2.8,BCC,BCC (MACE),this work
+dilution path x=75\%,5.75,7.44,-14.2,1.33,1.6,intermetallic / multi-phase,BCC (MACE),this work
+dilution path x=90\%,5.9,7.9,-16.0,1.03,1.04,intermetallic / multi-phase,BCC (MACE),this work
+dilution path x=100\%,6.0,8.18,-17.0,0.69,0.64,intermetallic / multi-phase,BCC (MACE),this work

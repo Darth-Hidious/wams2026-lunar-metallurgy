@@ -19,6 +19,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch, Rectangle
+from adjustText import adjust_text
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT  = ROOT / "figures"
@@ -119,12 +120,23 @@ def fig_alloy_landscape() -> None:
                       ha="center", va="bottom", fontsize=7.6, alpha=0.8)
     # Inconel HP benchmark (RT and 1000 K) — drawn from the same lab campaign
     # (the manuscript's Inconel-HP comparison row in Table 12).
+    # Labels placed in the empty mid-x region (between brittle bars and
+    # the SPARK-S1 column) with a white bbox so they stay legible
+    # regardless of which bars they sit near.
     axU.axhline(738, color=ACCENT, lw=1.0, ls="--", alpha=0.7)
-    axU.text(len(rows) - 0.3, 738 + 25, "Inconel HP, RT 738 MPa",
-              ha="right", va="bottom", fontsize=8, color=ACCENT, style="italic")
+    axU.text(6.5, 738, "Inconel HP, RT  738 MPa",
+              ha="center", va="center", fontsize=8, color=ACCENT,
+              style="italic", fontweight="bold",
+              bbox=dict(boxstyle="round,pad=0.30",
+                          facecolor="white", edgecolor=ACCENT,
+                          alpha=0.95, linewidth=0.5))
     axU.axhline(974, color=ACCENT, lw=1.0, ls=":", alpha=0.7)
-    axU.text(len(rows) - 0.3, 974 + 25, "Inconel HP, 1000 K 974 MPa",
-              ha="right", va="bottom", fontsize=8, color=ACCENT, style="italic")
+    axU.text(6.5, 974, "Inconel HP, 1000 K  974 MPa",
+              ha="center", va="center", fontsize=8, color=ACCENT,
+              style="italic", fontweight="bold",
+              bbox=dict(boxstyle="round,pad=0.30",
+                          facecolor="white", edgecolor=ACCENT,
+                          alpha=0.95, linewidth=0.5))
     # Brittle / no-tensile labels
     for i, r in enumerate(rows):
         if r[2] is None and r[3] is None:
@@ -190,19 +202,38 @@ def fig_strength_retention() -> None:
         ("Monel K500",         np.array([550,  480]),  "#5D4037", ":",  "^", 1.8, "bench"),
     ]
 
+    # Plot the lines and collect data-point label objects so adjust_text
+    # can repel them from each other once everything is on the canvas.
+    label_texts = []
+    label_anchors = []  # (x, y) of each label's true marker position
     for name, vals, col, ls, mk, lw, _ in series:
         ax.plot(T, vals, ls=ls, marker=mk, color=col, lw=lw, markersize=8,
                   markeredgecolor="black", markeredgewidth=0.6)
         for ti, v in zip(T, vals):
-            ax.text(ti + (15 if ti < 500 else -15), v + 28, f"{int(v)}",
-                     ha="left" if ti < 500 else "right", va="bottom",
-                     fontsize=8.2, color=col, fontweight="bold")
+            t = ax.text(ti, v, f"{int(v)}",
+                         fontsize=8.4, color=col, fontweight="bold",
+                         ha="center", va="center",
+                         bbox=dict(boxstyle="round,pad=0.15",
+                                     facecolor="white", edgecolor="none",
+                                     alpha=0.85))
+            label_texts.append(t)
+            label_anchors.append((ti, v))
 
     # Preburner working window
     ax.axvspan(900, 1200, color="#FFF59D", alpha=0.30, zorder=0)
     ax.text(1050, 1380, "Preburner working window  (1000–1200 K)",
              ha="center", va="top", fontsize=8.6, color="#5D4037",
              style="italic")
+
+    # Repel the data-value labels from each other and from the markers,
+    # with thin grey leader lines back to the original (T, value) point.
+    adjust_text(
+        label_texts, ax=ax,
+        expand_text=(1.5, 1.6), expand_points=(1.6, 1.7),
+        force_text=(0.8, 1.0), force_points=(0.6, 0.9),
+        arrowprops=dict(arrowstyle="-", color="#9E9E9E", lw=0.5,
+                         alpha=0.7, shrinkA=2, shrinkB=4),
+    )
 
     ax.set_xlabel("Temperature (K)")
     ax.set_ylabel("Ultimate tensile strength (MPa)")
@@ -517,5 +548,9 @@ if __name__ == "__main__":
     fig_alloy_landscape()
     fig_strength_retention()
     fig_xrd_panel()
-    fig_manufacturing_roadmap()
+    # NOTE: fig_manufacturing_roadmap() intentionally NOT called.
+    # The manufacturing roadmap shipped with the paper is a ChatGPT-rendered
+    # PNG (figures/fig_manufacturing_roadmap.png) authored separately.
+    # Re-running this matplotlib version would overwrite that PNG.
+    # See phase_diagrams/extra_models.py for the additional figures.
     print("\nDone.")
