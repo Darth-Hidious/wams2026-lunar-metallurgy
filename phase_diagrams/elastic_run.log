@@ -1,0 +1,32 @@
+Found 12 cached structures.
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+  [R1]  reference |stress|max = 0.268 GPa
+  -> G=30.9 GPa  B=113.3 GPa  G/B=0.273  (7.2 s)
+  [R2]  reference |stress|max = 0.453 GPa
+  -> G=43.8 GPa  B=169.1 GPa  G/B=0.259  (6.0 s)
+  [R3]  reference |stress|max = 0.233 GPa
+  -> G=60.2 GPa  B=147.3 GPa  G/B=0.409  (6.0 s)
+  [x=0]  reference |stress|max = 0.287 GPa
+  -> G=42.7 GPa  B=170.6 GPa  G/B=0.250  (6.0 s)
+  [x=10]  reference |stress|max = 0.337 GPa
+  -> G=47.8 GPa  B=172.0 GPa  G/B=0.278  (6.2 s)
+  [x=25]  reference |stress|max = 0.254 GPa
+  -> G=49.0 GPa  B=173.5 GPa  G/B=0.282  (6.6 s)
+  [x=50]  reference |stress|max = 0.392 GPa
+  -> G=50.5 GPa  B=169.8 GPa  G/B=0.298  (6.5 s)
+  [x=75]  reference |stress|max = 0.252 GPa
+  -> G=54.0 GPa  B=161.4 GPa  G/B=0.335  (6.8 s)
+  [x=90]  reference |stress|max = 0.381 GPa
+  -> G=56.4 GPa  B=162.0 GPa  G/B=0.348  (6.8 s)
+  [x=100]  reference |stress|max = 0.515 GPa
+  -> G=55.8 GPa  B=154.4 GPa  G/B=0.362  (6.9 s)
+  [Fe$_2$Nb]  reference |stress|max = 0.515 GPa
+  -> G=75.4 GPa  B=172.2 GPa  G/B=0.438  (6.8 s)
+  [Fe$_2$Ta]  reference |stress|max = 0.419 GPa
+  -> G=85.9 GPa  B=173.3 GPa  G/B=0.496  (6.8 s)
+
+Total compute: 1.3 min
+wrote /Users/siddharthakovid/Downloads/wams2026-lunar-metallurgy/.claude/worktrees/gifted-moore-e74ef6/phase_diagrams/elastic_results.csv
+  ✓ slide_10_pugh_ductility
+  ✓ slide_11_pugh_dilution_path

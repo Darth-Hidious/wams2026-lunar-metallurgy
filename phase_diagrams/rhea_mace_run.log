@@ -1,0 +1,81 @@
+Loading mace-mh-1 (CPU, float64, omat_pbe head)...
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+=== Pure-element references ===
+  ref:Al  E=-3.7569 eV/atom  (2.6s, 3 steps)
+  ref:Fe  E=-8.2822 eV/atom  (1.7s, 4 steps)
+  ref:Hf  E=-9.9377 eV/atom  (4.5s, 15 steps)
+  ref:Mo  E=-10.9207 eV/atom  (1.0s, 2 steps)
+  ref:Nb  E=-10.1068 eV/atom  (1.2s, 3 steps)
+  ref:Ta  E=-11.8130 eV/atom  (1.0s, 2 steps)
+  ref:Ti  E=-7.7958 eV/atom  (5.3s, 15 steps)
+  ref:V  E=-8.9479 eV/atom  (2.7s, 7 steps)
+  ref:Zr  E=-8.5287 eV/atom  (2.9s, 9 steps)
+
+=== Phase 1: T=0 BCC/FCC/HCP competition ===
+
+[R1_HfNbTaTiZr]
+  bcc  E=-9.5421 eV/atom  (16.3s, 29 steps)
+  fcc  E=-9.5203 eV/atom  (75.7s, 150 steps)
+  hcp  E=-9.5207 eV/atom  (74.4s, 145 steps)
+
+[R2_MoNbTaTiV]
+  bcc  E=-9.9177 eV/atom  (12.8s, 21 steps)
+  fcc  E=-9.8701 eV/atom  (70.9s, 130 steps)
+  hcp  E=-9.8844 eV/atom  (66.7s, 126 steps)
+
+[R3_ISRU_blend]
+  bcc  E=-7.8840 eV/atom  (21.4s, 38 steps)
+  fcc  E=-7.8576 eV/atom  (79.3s, 144 steps)
+  hcp  E=-7.8610 eV/atom  (82.0s, 150 steps)
+
+=== Phase 2: Solute dissolution (Fe/Ti/Al) ===
+
+[R1_HfNbTaTiZr]  E=-9.5421 eV/atom
+  Fe<-Hf  E=-9.5237 eV/atom  (16.0s, 30 steps)
+    E_sub(Fe<-Hf) = +0.187 eV
+  Ti<-Hf  E=-9.5197 eV/atom  (5.6s, 10 steps)
+    E_sub(Ti<-Hf) = +0.094 eV
+  Al<-Hf  E=-9.4875 eV/atom  (5.0s, 9 steps)
+    E_sub(Al<-Hf) = -0.720 eV
+
+[R2_MoNbTaTiV]  E=-9.9177 eV/atom
+  Fe<-Mo  E=-9.8882 eV/atom  (6.3s, 12 steps)
+    E_sub(Fe<-Mo) = +0.305 eV
+  Ti<-Mo  E=-9.8829 eV/atom  (2.7s, 4 steps)
+    E_sub(Ti<-Mo) = +0.349 eV
+  Al<-Mo  E=-9.8469 eV/atom  (4.8s, 8 steps)
+    E_sub(Al<-Mo) = -0.093 eV
+
+[R3_ISRU_blend]  E=-7.8840 eV/atom
+  Fe<-Ti  E=-7.8910 eV/atom  (10.8s, 20 steps)
+    E_sub(Fe<-Ti) = -0.216 eV
+  Ti<-Fe  E=-7.8860 eV/atom  (12.0s, 22 steps)
+    E_sub(Ti<-Fe) = -0.689 eV
+  Al<-Fe  E=-7.8472 eV/atom  (7.4s, 13 steps)
+    E_sub(Al<-Fe) = -0.847 eV
+
+=== Phase 3: MD on ISRU blend ===
+  T=1000K  done 1000 steps in 8.8 min (531 ms/step)  <T>=987K
+  T=1500K  done 1000 steps in 8.9 min (531 ms/step)  <T>=1489K
+  T=2000K  done 1000 steps in 8.8 min (530 ms/step)  <T>=2054K
+
+=== Generating paper figure ===
+
+✓ wrote /Users/siddharthakovid/Downloads/wams2026-lunar-metallurgy/.claude/worktrees/gifted-moore-e74ef6/figures/rhea_mace_stability.pdf
+✓ wrote /Users/siddharthakovid/Downloads/wams2026-lunar-metallurgy/.claude/worktrees/gifted-moore-e74ef6/figures/rhea_mace_stability.png
+
+=== Generating slide figures ===
+  ✓ slide_01_phase_competition
+  ✓ slide_02_bcc_preference
+  ✓ slide_03_solute_dissolution
+  ✓ slide_04_md_energy
+  ✓ slide_05_md_temperature
+  ✓ slide_06_md_rdf
+  ✓ slide_07_structures_bcc
+  ✓ slide_08_structures_isru_phases
+  ✓ slide_09_md_snapshot
+✓ wrote /Users/siddharthakovid/Downloads/wams2026-lunar-metallurgy/.claude/worktrees/gifted-moore-e74ef6/phase_diagrams/rhea_mace_results.csv
+
+=== TOTAL: 36.6 min ===

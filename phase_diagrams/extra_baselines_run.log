@@ -1,0 +1,19 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Using float64 for MACECalculator, which is slower but more accurate. Recommended for geometry optimization.
+
+[MoNbTaW]  comp={'Mo': 25, 'Nb': 25, 'Ta': 25, 'W': 25}
+  relax: E=-11.5182 eV/atom  (8.3s, 15 steps)
+  [MoNbTaW]  reference |stress|max = 0.169 GPa
+  -> G=87.8 GPa  B=241.3 GPa  G/B=0.364
+
+[MoNbTaVW]  comp={'Mo': 20, 'Nb': 20, 'Ta': 20, 'V': 20, 'W': 20}
+  relax: E=-10.9842 eV/atom  (9.3s, 18 steps)
+  [MoNbTaVW]  reference |stress|max = 0.250 GPa
+  -> G=73.9 GPa  B=227.5 GPa  G/B=0.325
+
+[AlMo0.5NbTa0.5TiZr]  comp={'Al': 20, 'Mo': 10, 'Nb': 20, 'Ta': 10, 'Ti': 20, 'Zr': 20}
+  relax: E=-8.3774 eV/atom  (14.0s, 26 steps)
+  [AlMo0.5NbTa0.5TiZr]  reference |stress|max = 0.323 GPa
+  -> G=44.4 GPa  B=131.2 GPa  G/B=0.339
+
+wrote /Users/siddharthakovid/Downloads/wams2026-lunar-metallurgy/.claude/worktrees/gifted-moore-e74ef6/phase_diagrams/elastic_results_extra.csv
