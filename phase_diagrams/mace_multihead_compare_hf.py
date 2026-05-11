@@ -176,14 +176,29 @@ def build_pure_reference(elem: str):
     raise ValueError(crystal)
 
 
+_MODEL_PATH = None
+def _model_path():
+    """Cache the downloaded MACE-MH-1 checkpoint across head switches."""
+    global _MODEL_PATH
+    if _MODEL_PATH is None:
+        from huggingface_hub import hf_hub_download
+        _MODEL_PATH = hf_hub_download(
+            repo_id="mace-foundations/mace-mh-1",
+            filename="mace-mh-1.model",
+        )
+    return _MODEL_PATH
+
+
 def load_calculator(head: str):
-    """Construct a MACECalculator pinned to a particular MH head."""
-    from mace.calculators import MACECalculator
-    return MACECalculator(
-        model_paths="mace-foundations/mace-mh-1",
-        head=head,
-        device="cuda",
+    """Construct a MACE calculator pinned to a particular multi-head output."""
+    from mace.calculators import mace_mp
+    import torch
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+    return mace_mp(
+        model=_model_path(),
         default_dtype="float32",
+        device=device,
+        head=head,
     )
 
 
